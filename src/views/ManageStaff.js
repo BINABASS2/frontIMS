@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Asset.css';
-import RegisterStaff from './RegisterStaff';  // Corrected the import path
+import RegisterStaff from './RegisterStaff';
 
-const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
-  const [isModalOpen, setModalOpen] = useState(false);  // State to manage modal visibility
+const ManageStaff = ({ staffs, onEdit, onDelete, onView, onSubmit }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
 
-  // Function to open the modal
   const handleAddClick = () => {
     setModalOpen(true);
   };
 
-  // Function to close the modal
   const handleCloseModal = () => {
     setModalOpen(false);
   };
 
-  // Ensure staff is always an array
   const staffList = Array.isArray(staffs) ? staffs : [];
 
   return (
     <div className='content'>
       <div className="asset-table-container">
-        <div className="header">
-          <h1 className='h1'>STAFFS</h1>
-        </div>
+        <h1 className='h1'>STAFFS</h1>
         <button className="add-button" onClick={handleAddClick}>ADD</button>
         <hr/>
         <table className="asset-table">
@@ -36,7 +31,6 @@ const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
               <th>Username</th>
               <th>Email</th>
               <th>Password</th>
-              <th>Contact</th>
               <th>Role</th>
               <th>Registered Date</th>
               <th>Action</th>
@@ -70,12 +64,11 @@ const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
         </table>
       </div>
 
-      {/* Conditionally render the RegisterStaff modal */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={handleCloseModal}>&times;</span>
-            <RegisterStaff />
+            <RegisterStaff onSubmit={onSubmit} onClose={handleCloseModal} />
           </div>
         </div>
       )}
@@ -83,15 +76,14 @@ const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
   );
 };
 
-// Define PropTypes for the component
 ManageStaff.propTypes = {
   staffs: PropTypes.array,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onView: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
-// Set default props
 ManageStaff.defaultProps = {
   staffs: [],
 };

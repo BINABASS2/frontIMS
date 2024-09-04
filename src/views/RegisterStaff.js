@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './RegisterStaff.css'
 import {
   Button,
   Card,
