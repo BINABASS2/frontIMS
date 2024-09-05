@@ -11,7 +11,7 @@ import {
   Col,
 } from "reactstrap";
 
-function RegisterStaff({ onSubmit }) {
+function RegisterSupplier({ onSubmit }) {
   const [formData, setFormData] = useState({
     firstNames: '',
     lastName: '',
@@ -34,31 +34,31 @@ function RegisterStaff({ onSubmit }) {
     <div className="content">
       <Row>
         <Col md="12"> 
-              <h5 className="title">New Staff</h5>
+              <h5 className="title">New Supplier</h5>
           <Card>
             <CardBody>
               <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col md="6">
                     <FormGroup>
-                      <label>First Names</label>
+                      <label>Brand Name</label>
                       <Input
-                        name="firstNames"
-                        value={formData.firstNames}
+                        name="brand_name"
+                        value={formData.brandName}
                         onChange={handleChange}
-                        placeholder="First Names"
+                        placeholder="Brand Name"
                         type="text"
                       />
                     </FormGroup>
                   </Col>
                   <Col md="6">
                     <FormGroup>
-                      <label>Last Name</label>
+                      <label>Address</label>
                       <Input
-                        name="lastName"
-                        value={formData.lastName}
+                        name="address"
+                        value={formData.address}
                         onChange={handleChange}
-                        placeholder="Last Name"
+                        placeholder="Address"
                         type="text"
                       />
                     </FormGroup>
@@ -67,13 +67,13 @@ function RegisterStaff({ onSubmit }) {
                 <Row>
                   <Col md="6">
                     <FormGroup>
-                      <label>Username</label>
+                      <label>Contact</label>
                       <Input
-                        name="username"
-                        value={formData.username}
+                        name="contact"
+                        value={formData.contact}
                         onChange={handleChange}
-                        placeholder="Username"
-                        type="text"
+                        placeholder="Contact"
+                        type="number"
                       />
                     </FormGroup>
                   </Col>
@@ -91,35 +91,9 @@ function RegisterStaff({ onSubmit }) {
                   </Col>
                 </Row>
                 <Row>
-                  <Col md="6">
-                    <FormGroup>
-                      <label>Password</label>
-                      <Input
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        placeholder="Password"
-                        type="password"
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="6">
-                    <FormGroup>
-                      <label>Role</label>
-                      <Input
-                        name="role"
-                        value={formData.role}
-                        onChange={handleChange}
-                        placeholder="Role"
-                        type="text"
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
                 <Col md="6">
                     <FormGroup>
-                      <label>Registered Date</label>
+                      <label>Service Date</label>
                       <Input
                         name="date"
                         value={formData.date}
@@ -142,4 +116,4 @@ function RegisterStaff({ onSubmit }) {
   );
 }
 
-export default RegisterStaff;
+export default RegisterSupplier;

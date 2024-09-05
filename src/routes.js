@@ -3,7 +3,7 @@ import FixedAsset from "views/FixedAsset.js";
 import NonFixedAsset from "views/NonFixedAsset.js";
 import Report from "views/Report.js";
 import ManageStaff from "views/ManageStaff.js";
-// import Login from "login/Login";
+import ManageSupplier from "views/ManageSupplier.js";
 
 var routes = [
   {
@@ -30,8 +30,15 @@ var routes = [
   {
     path: "/ManageStaff",
     name: "Manage Staffs",
-    icon: "tim-icons icon-user-run",
+    icon: "tim-icons icon-single-02",  // Updated Icon
     component: <ManageStaff />,
+    layout: "/admin",
+  },
+  {
+    path: "/ManageSupplier",
+    name: "Manage Supplier",
+    icon: "tim-icons icon-bus-front-12",  // Updated Icon
+    component: <ManageSupplier />,
     layout: "/admin",
   },
   {
@@ -42,4 +49,5 @@ var routes = [
     layout: "/admin",
   }
 ];
+
 export default routes;

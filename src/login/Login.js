@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import './Login.css';
 import { FaUserCheck, FaLinkedin, FaGoogle, FaTwitter, FaFacebook } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { MdOutlineAlternateEmail } from "react-icons/md";
-import { BsPersonWorkspace } from "react-icons/bs";
 
 const Login = (props) => {
   const [active, setActive] = useState("login");
