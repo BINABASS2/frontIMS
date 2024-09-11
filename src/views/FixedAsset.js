@@ -18,7 +18,7 @@ const FixedAsset = ({ assets, onEdit, onDelete, onView, onAdd }) => {
   return (
     <div className='content'>
       <div className="asset-table-container">
-          <h1 className='h1'>Fixed Assets</h1>
+          <h1 className='h1'>Manage Asset</h1>
         <button className="add-button" onClick={handleOpenModal}>ADD</button>
         <hr/>
         <table className="asset-table">
@@ -28,9 +28,10 @@ const FixedAsset = ({ assets, onEdit, onDelete, onView, onAdd }) => {
               <th>Name</th>
               <th>Type</th>
               <th>Description</th>
-              <th>Value</th>
+              <th>Purchased Value</th>
               <th>Purchase Date</th>
               <th>Status</th>
+              <th>Quantity</th>
               <th>Supplier</th>
               <th>Actions</th>
             </tr>
@@ -41,7 +42,7 @@ const FixedAsset = ({ assets, onEdit, onDelete, onView, onAdd }) => {
                 <td colSpan="9" className="no-data">No assets found</td>
               </tr>
             ) : (
-              assets.map((asset) => (
+              assets.map((asset) => ( 
                 <tr key={asset.id}>
                   <td>{asset.id}</td>
                   <td>{asset.name}</td>
@@ -50,8 +51,10 @@ const FixedAsset = ({ assets, onEdit, onDelete, onView, onAdd }) => {
                   <td>{asset.value}</td>
                   <td>{asset.purchaseDate}</td>
                   <td>{asset.status}</td>
-                  <td>{asset.appreciation}</td>
+                  <td>{asset.quantity}</td>
+                  <td>{asset.supplier}</td>
                   <td>
+
                     <button onClick={() => onView(asset)}>View</button>
                     <button onClick={() => onEdit(asset)}>Edit</button>
                     <button onClick={() => onDelete(asset.id)}>Delete</button>
@@ -76,6 +79,7 @@ FixedAsset.propTypes = {
   onView: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,
 };
+
 
 FixedAsset.defaultProps = {
   assets: [],

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './RegisterAsset.css';
+import { Button, Card, CardBody, FormGroup, Form, Input, Row, Col } from 'reactstrap';
 
 const RegisterAsset = ({ onClose, onRegister }) => {
   const [formData, setFormData] = useState({
@@ -33,92 +34,125 @@ const RegisterAsset = ({ onClose, onRegister }) => {
   };
 
   return (
-    <div className="asset-form-container">
-      <div className="close-button" onClick={onClose}>✖</div>  {/* Close button */}
-      <form className="asset-form">
-        <h2>Register Asset</h2>
-        {/* Form fields */}
-        <div className="form-group">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <select
-            id="type"
-            name="type"
-            value={formData.type}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>Select type</option>
-            <option value="Fixed">Fixed</option>
-            <option value="Non-Fixed">Non-Fixed</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            id="description"
-            name="description"
-            placeholder="Description"
-            value={formData.description}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="number"
-            id="value"
-            name="value"
-            placeholder="Value"
-            value={formData.value}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="date"
-            id="purchaseDate"
-            name="purchaseDate"
-            placeholder="Purchase Date"
-            value={formData.purchaseDate}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            id="status"
-            name="status"
-            placeholder="Status"
-            value={formData.status}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            id="supplier"
-            name="supplier"
-            placeholder="Supplier"
-            value={formData.appreciation}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button className="submit" type="submit" onSubmit={handleSubmit}>Register</button>
-      </form>
+    <div className="content">
+      <h5 className="title">Register Asset</h5>
+      <Card>
+        <CardBody>
+          <Form onSubmit={handleSubmit}>
+            <Row>
+              <Col md="6">
+                <FormGroup>
+                  <label>Name</label>
+                  <Input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Type</label>
+                  <Input
+                    type="select"
+                    name="type"
+                    value={formData.type}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="" disabled>Type</option>
+                    <option value="Fixed">Fixed</option>
+                    <option value="Non-Fixed">Variable</option>
+                  </Input>
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Description</label>
+                  <Input
+                    type="text"
+                    name="description"
+                    placeholder="Description"
+                    value={formData.description}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Purchased Value</label>
+                  <Input
+                    name="purchasedValue"
+                    placeholder="Amount"
+                    value={formData.purchasedValue}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Purchase Date</label>
+                  <Input
+                    type="date"
+                    name="purchaseDate"
+                    placeholder="Purchase Date"
+                    value={formData.purchaseDate}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Status</label>
+                  <Input
+                    type="text"
+                    name="status"
+                    placeholder="Status"
+                    value={formData.status}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Quantity</label>
+                  <Input
+                    type="text"
+                    name="appreciation"
+                    placeholder="Quantity"
+                    value={formData.appreciation}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Supplier</label>
+                  <Input
+                    type="text"
+                    name="Supplier"
+                    placeholder="Supplier"
+                    value={formData.Supplier}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Button className="btn-fill" color="primary" type="submit">
+              Register
+            </Button>
+          </Form>
+        </CardBody>
+      </Card>
     </div>
   );
 };

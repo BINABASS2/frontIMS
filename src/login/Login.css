@@ -11,7 +11,6 @@ body, input{
 .container{
     position: relative;
     width: 100%;
-    min-height: 100vh;
     background: #fff;
     overflow: hidden;
 }
@@ -19,7 +18,7 @@ body, input{
 .container:before{
     content: '';
     position: absolute;
-    width: 2000px;
+    width: 1000px;
     height: 2000px;
     border-radius: 50%;
     background: linear-gradient(-45deg, #4481eb, #04befe);
@@ -204,14 +203,14 @@ form.sign-up-form{
     padding: 0.7rem 0;
 }
 
-.btn.transparent{
+.btn .transparent{
     margin: 0;
     background: none;
-    border: 2px solid #fff;
-    width: 130px;
-    height: 41px;
+    border: 2px dotted #fff;
+    width: 150px;
+    height: 90px;
     font-weight: 600;
-    font-size: 0.68rem;
+    font-size: 20px;
 }
 
 .image{
@@ -265,7 +264,7 @@ form.sign-up-form{
     opacity: 1;
 }
 
-@media(max-width: 870px){
+@media(max-width: 9990px){
     .container{
         min-height: 800px;
         height: 10vh;
@@ -273,7 +272,7 @@ form.sign-up-form{
 
     .container:before{
         width: 1500px;
-        height: 1500px;
+        height: 1700px;
         left: 30%;
         bottom: 68%;
         transform: translateX(-50%);
@@ -357,7 +356,7 @@ form.sign-up-form{
     }
 }
 
-@media(max-width: 570px){
+@media(max-width: 9999px){
     form{
         padding: 0 1.5rem;
     }

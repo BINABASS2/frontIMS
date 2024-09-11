@@ -11,7 +11,7 @@ import { Nav } from "reactstrap";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
 // Import inventory logo
-import inv_mng from "assets/img/inv_mng.jpeg";
+import hmylogo from "assets/img/hmylogo.png";
 
 var ps;
 
@@ -51,7 +51,7 @@ function Sidebar(props) {
           onClick={props.toggleSidebar}
         >
           <div className="logo-img">
-            <img src={inv_mng} alt="inventory-logo" />
+            <img src={hmylogo} alt="inventory-logo" />
           </div>
         </a>
       );

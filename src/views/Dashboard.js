@@ -163,7 +163,8 @@ function Dashboard(props) {
                     <tr>
                       <th>Name</th>
                       <th>Description</th>
-                      <th className="text-center">Value</th>
+                      <th className="text-center">Amount</th>
+                      <th className="text-center">Supplier</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -219,7 +220,8 @@ function Dashboard(props) {
                     <tr>
                       <th>Name</th>
                       <th>Description</th>
-                      <th className="text-center">Value</th>
+                      <th className="text-center">Amount</th>
+                      <th className="text-center">Supplier</th>
                     </tr>
                   </thead>
                   <tbody>

@@ -25,7 +25,7 @@ const ManageSupplier = ({ supplier, onEdit, onDelete, onView }) => {
   return (
     <div className='content'>
       <div className="asset-table-container">
-        <h1 className='h1'>SUPPLIERS</h1>
+        <h1 className='h1'>Manage Supplier</h1>
         <button className="add-button" onClick={handleAddClick}>ADD</button>
         <hr/>
         <table className="asset-table">
@@ -79,11 +79,12 @@ const ManageSupplier = ({ supplier, onEdit, onDelete, onView }) => {
 };
 
 ManageSupplier.propTypes = {
-  supplier: PropTypes.array,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onView: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
 };
+
 
 ManageSupplier.defaultProps = {
   supplier: [],

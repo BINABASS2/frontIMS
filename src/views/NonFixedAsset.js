@@ -28,9 +28,10 @@ const NonFixedAsset = ({ assets, onEdit, onDelete, onView, onAdd }) => {
               <th>Name</th>
               <th>Type</th>
               <th>Description</th>
-              <th>Value</th>
+              <th>Purchased Value</th>
               <th>Purchase Date</th>
               <th>Status</th>
+              <th>Quantity</th>
               <th>Supplier</th>
               <th>Actions</th>
             </tr>
@@ -50,6 +51,7 @@ const NonFixedAsset = ({ assets, onEdit, onDelete, onView, onAdd }) => {
                   <td>{asset.value}</td>
                   <td>{asset.purchaseDate}</td>
                   <td>{asset.status}</td>
+                  <td>{asset.quantity}</td>
                   <td>{asset.appreciation}</td>
                   <td>
                     <button onClick={() => onView(asset)}>View</button>

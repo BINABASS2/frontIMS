@@ -25,16 +25,14 @@ const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
   return (
     <div className='content'>
       <div className="asset-table-container">
-        <h1 className='h1'>STAFFS</h1>
+        <h1 className='h1'>Manage Staff</h1>
         <button className="add-button" onClick={handleAddClick}>ADD</button>
         <hr/>
         <table className="asset-table">
           <thead>
             <tr>
               <th>ID</th>
-              <th>First Names</th>
-              <th>Last Name</th>
-              <th>Username</th>
+              <th>Full Name</th>
               <th>Email</th>
               <th>Password</th>
               <th>Role</th>
@@ -45,15 +43,13 @@ const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
           <tbody>
             {staffList.length === 0 ? (
               <tr>
-                <td colSpan="9" className="no-data">No staffs found</td>
+                <td colSpan="7" className="no-data">No staffs found</td>
               </tr>
             ) : (
               staffList.map((staff) => (
                 <tr key={staff.id}>
                   <td>{staff.id}</td>
-                  <td>{staff.firstNames}</td>
-                  <td>{staff.lastName}</td>
-                  <td>{staff.username}</td>
+                  <td>{staff.fullName}</td>
                   <td>{staff.email}</td>
                   <td>{staff.password}</td>
                   <td>{staff.role}</td>
@@ -83,11 +79,12 @@ const ManageStaff = ({ staffs, onEdit, onDelete, onView }) => {
 };
 
 ManageStaff.propTypes = {
-  staffs: PropTypes.array,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onView: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
 };
+
 
 ManageStaff.defaultProps = {
   staffs: [],
