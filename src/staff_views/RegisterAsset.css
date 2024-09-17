@@ -12,6 +12,11 @@
   overflow-y: auto; /* Allow scrolling if content exceeds height */
 }
 
+.title{
+  text-align: center;
+  text-decoration: underline;
+}
+
 /* Style for the form */
 .asset-form {
   display: flex;

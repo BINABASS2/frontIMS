@@ -3,9 +3,109 @@ import PropTypes from 'prop-types';
 import './Asset.css';
 import RegisterSupplier from './RegisterSupplier';
 
-const ManageSupplier = ({ supplier, onEdit, onDelete, onView }) => {
+const ManageSupplier = ({ onEdit, onDelete, onView }) => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [supplierList, setSupplierList] = useState(Array.isArray(supplier) ? supplier : []);
+
+  // Sample suppliers data (Initially populated with sample data)
+  const [supplierList, setSupplierList] = useState([
+    {
+      id: 1,
+      name: 'Supplier A',
+      address: '123 Supplier St, City, Country',
+      contact: '123-456-7890',
+      email: 'contact@supplierA.com',
+      serviceDate: '2024-01-15',
+    },
+    {
+      id: 2,
+      name: 'Supplier B',
+      address: '456 Supplier Ave, City, Country',
+      contact: '234-567-8901',
+      email: 'contact@supplierB.com',
+      serviceDate: '2024-02-20',
+    },
+    {
+      id: 3,
+      name: 'Supplier C',
+      address: '789 Supplier Blvd, City, Country',
+      contact: '345-678-9012',
+      email: 'contact@supplierC.com',
+      serviceDate: '2024-03-25',
+    },
+    {
+      id: 4,
+      name: 'Supplier A',
+      address: '123 Supplier St, City, Country',
+      contact: '123-456-7890',
+      email: 'contact@supplierA.com',
+      serviceDate: '2024-01-15',
+    },
+    {
+      id: 5,
+      name: 'Supplier B',
+      address: '456 Supplier Ave, City, Country',
+      contact: '234-567-8901',
+      email: 'contact@supplierB.com',
+      serviceDate: '2024-02-20',
+    },
+    {
+      id: 6,
+      name: 'Supplier C',
+      address: '789 Supplier Blvd, City, Country',
+      contact: '345-678-9012',
+      email: 'contact@supplierC.com',
+      serviceDate: '2024-03-25',
+    },
+    {
+      id: 7,
+      name: 'Supplier A',
+      address: '123 Supplier St, City, Country',
+      contact: '123-456-7890',
+      email: 'contact@supplierA.com',
+      serviceDate: '2024-01-15',
+    },
+    {
+      id: 8,
+      name: 'Supplier B',
+      address: '456 Supplier Ave, City, Country',
+      contact: '234-567-8901',
+      email: 'contact@supplierB.com',
+      serviceDate: '2024-02-20',
+    },
+    {
+      id: 9,
+      name: 'Supplier C',
+      address: '789 Supplier Blvd, City, Country',
+      contact: '345-678-9012',
+      email: 'contact@supplierC.com',
+      serviceDate: '2024-03-25',
+    },
+    {
+      id: 10,
+      name: 'Supplier A',
+      address: '123 Supplier St, City, Country',
+      contact: '123-456-7890',
+      email: 'contact@supplierA.com',
+      serviceDate: '2024-01-15',
+    },
+    {
+      id: 11,
+      name: 'Supplier B',
+      address: '456 Supplier Ave, City, Country',
+      contact: '234-567-8901',
+      email: 'contact@supplierB.com',
+      serviceDate: '2024-02-20',
+    },
+    {
+      id: 12,
+      name: 'Supplier C',
+      address: '789 Supplier Blvd, City, Country',
+      contact: '345-678-9012',
+      email: 'contact@supplierC.com',
+      serviceDate: '2024-03-25',
+    },
+    // Add more suppliers as needed
+  ]);
 
   const handleAddClick = () => {
     setModalOpen(true);
@@ -17,7 +117,7 @@ const ManageSupplier = ({ supplier, onEdit, onDelete, onView }) => {
 
   // Define the onSubmit function
   const handleFormSubmit = (newSupplier) => {
-    // Add new staff to the staff list
+    // Add new supplier to the supplier list
     setSupplierList([...supplierList, { ...newSupplier, id: supplierList.length + 1 }]);
     setModalOpen(false); // Close the modal after submission
   };
@@ -28,15 +128,16 @@ const ManageSupplier = ({ supplier, onEdit, onDelete, onView }) => {
         <h1 className='h1'>Manage Supplier</h1>
         <button className="add-button" onClick={handleAddClick}>ADD</button>
         <hr/>
+        <div className="table-wrapper">
         <table className="asset-table">
           <thead>
             <tr>
               <th>ID</th>
-              <th>Brand name</th>
+              <th>Brand Name</th>
               <th>Address</th>
               <th>Contact</th>
               <th>Email</th>
-              <th>Service date</th>
+              <th>Service Date</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -52,18 +153,19 @@ const ManageSupplier = ({ supplier, onEdit, onDelete, onView }) => {
                   <td>{supplier.name}</td>
                   <td>{supplier.address}</td>
                   <td>{supplier.contact}</td>
-                  <td>{supplier.serviceDate}</td>
                   <td>{supplier.email}</td>
+                  <td>{supplier.serviceDate}</td>
                   <td>
                     <button onClick={() => onView(supplier)}>View</button>
                     <button onClick={() => onEdit(supplier)}>Edit</button>
-                    <button onClick={() => onDelete(supplier.id)}>Delete</button>
+                    {/* <button onClick={() => onDelete(supplier.id)}>Delete</button> */}
                   </td>
                 </tr>
               ))
             )}
           </tbody>
         </table>
+        </div>
       </div>
 
       {isModalOpen && (
@@ -82,9 +184,7 @@ ManageSupplier.propTypes = {
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onView: PropTypes.func.isRequired,
-  onAdd: PropTypes.func.isRequired,
 };
-
 
 ManageSupplier.defaultProps = {
   supplier: [],

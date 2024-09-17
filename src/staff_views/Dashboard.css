@@ -1,0 +1,52 @@
+/* General Card Body styling */
+.card-body {
+    padding: 20px;
+    overflow: hidden; /* Prevents content from overflowing outside the card */
+  }
+  
+  /* Scrollable table container */
+  .table-scroll {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enables vertical scrolling */
+  }
+  
+  /* General table styling */
+  .tablesorter {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders between cells are merged */
+  }
+  
+  /* Table header styling */
+  .tablesorter thead th {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Table body styling */
+  .tablesorter tbody td {
+    padding: 10px;
+  }
+  
+  /* Alternate row colors */
+  .tablesorter tbody tr:nth-child(even) {
+    background-color: #665744;
+  }
+  
+  /* Hover effect for rows */
+  .tablesorter tbody tr:hover {
+    background-color: grey;
+  }
+  
+  /* No data styling */
+  .no-data {
+    text-align: center;
+    color: #6c757d;
+  }
+  
+  /* Table header styling */
+.table-container thead {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa; /* Set background color to ensure header is visible */
+  z-index: 1; /* Ensure header stays on top of other content */
+}

@@ -5,6 +5,7 @@ import { Button, Card, CardBody, FormGroup, Form, Input, Row, Col } from 'reacts
 const RegisterAsset = ({ onClose, onRegister }) => {
   const [formData, setFormData] = useState({
     fullName: "",
+    contact: "",
     email: "",
     password: "",
     role: "",
@@ -21,6 +22,7 @@ const RegisterAsset = ({ onClose, onRegister }) => {
     onRegister(formData); // Send the form data to the parent component
     setFormData({
       fullName: "",
+      contact: "",
       email: "",
       password: "",
       role: "",
@@ -57,6 +59,18 @@ const RegisterAsset = ({ onClose, onRegister }) => {
                     name="email"
                     placeholder="Email"
                     value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Contact</label>
+                  <Input
+                    name="contact"
+                    placeholder="contact"
+                    value={formData.contact}
                     onChange={handleChange}
                     required
                   />

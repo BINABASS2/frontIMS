@@ -1,113 +1,122 @@
-/* Container for the asset table */
+  /* Container for the asset table */
 .asset-table-container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Allow horizontal scrolling on small screens */
-  }
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .h1{
-    text-align: center;
-    color: white;
-    font-weight: 500px;
-    text-decoration: underline;
-  }
+.h1{
+  text-align: center;
+  color: white;
+  font-weight: 500px;
+  text-decoration: underline;
+}
 
-  .add-button {
-    padding: 10px 30px;
-    margin: 5px;
-    font-size: 16px;
-    color: #ffffff;
-    background: #007bff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  
-  /* Style for the table */
+.add-button {
+  padding: 10px 30px;
+  margin: 5px;
+  font-size: 16px;
+  color: #ffffff;
+  background: #007bff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Styling for the table wrapper to handle scrolling */
+.table-wrapper {
+  overflow-y: auto;
+  max-height: 640px; /* Adjust the height as needed */
+}
+
+/* Style for the table */
+.asset-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Table header style */
+.asset-table thead {
+  background-color: #007bff;
+  color: white;
+  position: sticky; /* Ensure the header stays at the top */
+  top: 0; /* Stick the header to the top of the table */
+}
+
+/* Header and cells style */
+.asset-table th, .asset-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table row hover effect */
+.asset-table tr:hover {
+  background-color: #f54532;
+}
+
+/* Styling for no data row */
+.no-data {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+}
+
+/* Buttons for actions */
+.asset-table button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+/* Specific button styles */
+.asset-table button:first-of-type {
+  background-color: #007bff; /* Blue for view */
+}
+
+.asset-table button:first-of-type:hover {
+  background-color: #0056b3;
+}
+
+.asset-table button:nth-of-type(2) {
+  background-color: #ffc107; /* Yellow for edit */
+}
+
+.asset-table button:nth-of-type(2):hover {
+  background-color: #e0a800;
+}
+
+.asset-table button:last-of-type {
+  background-color: #dc3545; /* Red for delete */
+}
+
+.asset-table button:last-of-type:hover {
+  background-color: #c82333;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
   .asset-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  /* Table header style */
-  .asset-table thead {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .asset-table th, .asset-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .asset-table tr:hover {
-    background-color: #f54532;
-  }
-  
-  /* Styling for no data row */
-  .no-data {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-  }
-  
-  /* Buttons for actions */
-  .asset-table button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    margin-right: 5px;
-    font-size: 14px;
-  }
-  
-  /* Specific button styles */
-  .asset-table button:first-of-type {
-    background-color: #007bff; /* Blue for view */
-  }
-  
-  .asset-table button:first-of-type:hover {
-    background-color: #0056b3;
-  }
-  
-  .asset-table button:nth-of-type(2) {
-    background-color: #ffc107; /* Yellow for edit */
-  }
-  
-  .asset-table button:nth-of-type(2):hover {
-    background-color: #e0a800;
-  }
-  
-  .asset-table button:last-of-type {
-    background-color: #dc3545; /* Red for delete */
-  }
-  
-  .asset-table button:last-of-type:hover {
-    background-color: #c82333;
-  }
-  
-  /* Media Queries for responsiveness */
-  @media (max-width: 768px) {
-    .asset-table {
       font-size: 14px;
-    }
-  
-    .asset-table th, .asset-table td {
+  }
+
+  .asset-table th, .asset-table td {
       padding: 8px;
-    }
-  
-    .asset-table button {
+  }
+
+  .asset-table button {
       padding: 4px 8px;
       font-size: 12px;
-    }
   }
+}
+
+  
   

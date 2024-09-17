@@ -1,17 +1,12 @@
 import React from "react";
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
-// javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-
-// core components
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
-
 import routes from "routes.js";
-
-import logo from "assets/img/react-logo.png";
+import hmylogo from "assets/img/hmylogo.png";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
 var ps;
@@ -22,6 +17,7 @@ function Admin(props) {
   const [sidebarOpened, setsidebarOpened] = React.useState(
     document.documentElement.className.indexOf("nav-open") !== -1
   );
+
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
@@ -34,7 +30,6 @@ function Admin(props) {
         ps = new PerfectScrollbar(tables[i]);
       }
     }
-    // Specify how to clean up after this effect:
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
@@ -43,6 +38,7 @@ function Admin(props) {
       }
     };
   });
+
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       let tables = document.querySelectorAll(".table-responsive");
@@ -56,11 +52,12 @@ function Admin(props) {
       mainPanelRef.current.scrollTop = 0;
     }
   }, [location]);
-  // this function opens and closes the sidebar on small devices
+
   const toggleSidebar = () => {
     document.documentElement.classList.toggle("nav-open");
     setsidebarOpened(!sidebarOpened);
   };
+
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
@@ -72,6 +69,7 @@ function Admin(props) {
       }
     });
   };
+
   const getBrandText = (path) => {
     for (let i = 0; i < routes.length; i++) {
       if (location.pathname.indexOf(routes[i].layout + routes[i].path) !== -1) {
@@ -80,6 +78,7 @@ function Admin(props) {
     }
     return "Brand";
   };
+
   return (
     <BackgroundColorContext.Consumer>
       {({ color, changeColor }) => (
@@ -88,9 +87,12 @@ function Admin(props) {
             <Sidebar
               routes={routes}
               logo={{
-                outterLink: "https://www.creative-tim.com/",
                 text: "Inventory",
-                imgSrc: logo,
+                imgSrc: hmylogo,
+                imgStyle: {
+                  width: '200px',  // Ensure the logo is sufficiently large
+                  height: 'auto',  // Maintain aspect ratio
+                },
               }}
               toggleSidebar={toggleSidebar}
             />
@@ -107,10 +109,7 @@ function Admin(props) {
                   element={<Navigate to="/admin/dashboard" replace />}
                 />
               </Routes>
-              {
-                // we don't want the Footer to be rendered on map page
-                location.pathname === "/admin/maps" ? null : <Footer fluid />
-              }
+              {location.pathname === "/admin/maps" ? null : <Footer fluid />}
             </div>
           </div>
           <FixedPlugin bgColor={color} handleBgClick={changeColor} />

@@ -1,119 +1,113 @@
-import React, { useState } from "react";
-import './RegisterStaff.css'
-import {
-  Button,
-  Card,
-  CardBody,
-  FormGroup,
-  Form,
-  Input,
-  Row,
-  Col,
-} from "reactstrap";
+import React, { useState } from 'react';
+import './RegisterAsset.css';
+import { Button, Card, CardBody, FormGroup, Form, Input, Row, Col } from 'reactstrap';
 
-function RegisterSupplier({ onSubmit }) {
+const RegisterAsset = ({ onClose, onRegister }) => {
   const [formData, setFormData] = useState({
-    firstNames: '',
-    lastName: '',
-    username: '',
-    email: '',
-    password: '',
-    role: '',
+    brandName: "",
+    address: "",
+    contact: "",
+    email: "",
+    serviceDate: "",
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
+    onRegister(formData); // Send the form data to the parent component
+    setFormData({
+      brandName: "",
+      address: "",
+      contact: "",
+      email: "",
+      serviceDate: "",
+    });
+    onClose();  // Close the modal after submission
   };
 
   return (
     <div className="content">
-      <Row>
-        <Col md="12"> 
-              <h5 className="title">New Supplier</h5>
-          <Card>
-            <CardBody>
-              <Form onSubmit={handleSubmit}>
-                <Row>
-                  <Col md="6">
-                    <FormGroup>
-                      <label>Brand Name</label>
-                      <Input
-                        name="brand_name"
-                        value={formData.brandName}
-                        onChange={handleChange}
-                        placeholder="Brand Name"
-                        type="text"
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="6">
-                    <FormGroup>
-                      <label>Address</label>
-                      <Input
-                        name="address"
-                        value={formData.address}
-                        onChange={handleChange}
-                        placeholder="Address"
-                        type="text"
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md="6">
-                    <FormGroup>
-                      <label>Contact</label>
-                      <Input
-                        name="contact"
-                        value={formData.contact}
-                        onChange={handleChange}
-                        placeholder="Contact"
-                        type="number"
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md="6">
-                    <FormGroup>
-                      <label>Email</label>
-                      <Input
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                        type="email"
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                <Col md="6">
-                    <FormGroup>
-                      <label>Service Date</label>
-                      <Input
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        placeholder="Date"
-                        type="date"
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Button className="btn-fill" color="primary" type="submit">
-                  Save
-                </Button>
-              </Form>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+      <h5 className="title">New Supplier</h5>
+      <Card>
+        <CardBody>
+          <Form onSubmit={handleSubmit}>
+            <Row>
+              <Col md="6">
+                <FormGroup>
+                  <label>Brand Name</label>
+                  <Input
+                    type="text"
+                    name="brandName"
+                    placeholder="Brand Name"
+                    value={formData.brandName}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Address</label>
+                  <Input
+                    name="address"
+                    placeholder="Address"
+                    value={formData.address}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Contact</label>
+                  <Input
+                    name="contact"
+                    placeholder="Contact"
+                    value={formData.contact}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Email</label>
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6">
+                <FormGroup>
+                  <label>Supply At</label>
+                  <Input
+                    type="date"
+                    name="date"
+                    placeholder="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    required
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Button className="btn-fill" color="primary" type="submit">
+              Register
+            </Button>
+          </Form>
+        </CardBody>
+      </Card>
     </div>
   );
-}
+};
 
-export default RegisterSupplier;
+export default RegisterAsset;

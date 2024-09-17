@@ -1,27 +1,21 @@
 import React from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-// nodejs library to set properties for components
 import { PropTypes } from "prop-types";
-
-// javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-
-// reactstrap components
 import { Nav } from "reactstrap";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
-
-// Import inventory logo
-import hmylogo from "assets/img/hmylogo.png";
+import './Sidebar.css';
 
 var ps;
 
 function Sidebar(props) {
   const location = useLocation();
   const sidebarRef = React.useRef(null);
-  // verifies if routeName is the one active (in browser input)
+
   const activeRoute = (routeName) => {
     return location.pathname === routeName ? "active" : "";
   };
+
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(sidebarRef.current, {
@@ -29,7 +23,6 @@ function Sidebar(props) {
         suppressScrollY: false,
       });
     }
-    // Specify how to clean up after this effect:
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
@@ -43,27 +36,12 @@ function Sidebar(props) {
   if (logo !== undefined) {
     if (logo.outterLink !== undefined) {
       logoImg = (
-        <a
-          href={logo.outterLink}
-          className="simple-text logo-mini"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={props.toggleSidebar}
-        >
-          <div className="logo-img">
-            <img src={hmylogo} alt="inventory-logo" />
-          </div>
-        </a>
-      );
-      logoText = (
-        <a
-          href={logo.outterLink}
-          className="simple-text logo-normal"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={props.toggleSidebar}
-        >
-          {logo.text}
+        <a href={logo.outterLink} className="logo-img">
+          <img
+            src={logo.imgSrc}
+            alt="inventory-logo"
+            style={{ width: '200px', height: 'auto' }} // Adjust the width and height as needed
+          />
         </a>
       );
     } else {
@@ -74,7 +52,11 @@ function Sidebar(props) {
           onClick={props.toggleSidebar}
         >
           <div className="logo-img">
-            <img src={logo.imgSrc} alt="react-logo" />
+            <img
+              src={logo.imgSrc}
+              alt="react-logo"
+              style={{ width: '150px', height: 'auto' }} // Adjust the width and height as needed
+            />
           </div>
         </Link>
       );
@@ -89,6 +71,7 @@ function Sidebar(props) {
       );
     }
   }
+
   return (
     <BackgroundColorContext.Consumer>
       {({ color }) => (
@@ -121,8 +104,7 @@ function Sidebar(props) {
                   </li>
                 );
               })}
-              <li className="active-pro">
-              </li>
+              <li className="active-pro"></li>
             </Nav>
           </div>
         </div>
@@ -132,22 +114,16 @@ function Sidebar(props) {
 }
 
 Sidebar.propTypes = {
-  // if true, then instead of the routes[i].name, routes[i].rtlName will be rendered
-  // insde the links of this component
   rtlActive: PropTypes.bool,
   routes: PropTypes.arrayOf(PropTypes.object),
   logo: PropTypes.shape({
-    // innerLink is for links that will direct the user within the app
-    // it will be rendered as <Link to="...">...</Link> tag
     innerLink: PropTypes.string,
-    // outterLink is for links that will direct the user outside the app
-    // it will be rendered as simple <a href="...">...</a> tag
     outterLink: PropTypes.string,
-    // the text of the logo
     text: PropTypes.node,
-    // the image src of the logo
     imgSrc: PropTypes.string,
+    imgStyle: PropTypes.object, // Ensure imgStyle is defined
   }),
+  toggleSidebar: PropTypes.func,
 };
 
 export default Sidebar;
