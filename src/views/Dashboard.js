@@ -19,124 +19,124 @@ function Dashboard(props) {
   const [bigChartData, setbigChartData] = React.useState("data1");
   const [assets, setAssets] = useState({
     fixed: [
-      { 
-        name: 'Desk', 
-        description: 'Wooden desk with drawers and hutch', 
-        amount: 15, 
-        supplier: 'FurnitureDepot' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'Glass top desk with chrome legs', 
-        amount: 8, 
-        supplier: 'OfficePlus' 
-      },
-      {  
-        name: 'Desk', 
-        description: 'Height-adjustable wooden desk', 
-        amount: 12, 
-        supplier: 'Workspace Solutions' 
-      },
-      {  
-        name: 'Desk', 
-        description: 'Corner desk with built-in filing cabinets', 
-        amount: 6, 
-        supplier: 'OfficeMart' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'Executive desk with leather inlay and integrated storage', 
-        amount: 10, 
-        supplier: 'Modern Office' 
-      },
-      {  
-        name: 'Desk', 
-        description: 'Compact desk suitable for small spaces, wall-mounted',
-        supplier: 'Space Savers' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'Wooden desk with adjustable legs and modular design', 
-        supplier: 'Elegant Furniture' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'Desk with built-in USB ports and LED lighting', 
-        supplier: 'WorkWell' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'Sit-stand desk with programmable height settings', 
-        supplier: 'ErgoDesk' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'L-shaped desk with high gloss finish and integrated lighting', 
-        supplier: 'LightUp Office' 
-      },
-      { 
-        name: 'Desk', 
-        description: 'Desk with custom branding options', 
-        amount: 4, 
-        supplier: 'Complete' 
-      }
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Wooden desk with drawers and hutch', 
+      //   amount: 15, 
+      //   supplier: 'FurnitureDepot' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Glass top desk with chrome legs', 
+      //   amount: 8, 
+      //   supplier: 'OfficePlus' 
+      // },
+      // {  
+      //   name: 'Desk', 
+      //   description: 'Height-adjustable wooden desk', 
+      //   amount: 12, 
+      //   supplier: 'Workspace Solutions' 
+      // },
+      // {  
+      //   name: 'Desk', 
+      //   description: 'Corner desk with built-in filing cabinets', 
+      //   amount: 6, 
+      //   supplier: 'OfficeMart' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Executive desk with leather inlay and integrated storage', 
+      //   amount: 10, 
+      //   supplier: 'Modern Office' 
+      // },
+      // {  
+      //   name: 'Desk', 
+      //   description: 'Compact desk suitable for small spaces, wall-mounted',
+      //   supplier: 'Space Savers' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Wooden desk with adjustable legs and modular design', 
+      //   supplier: 'Elegant Furniture' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Desk with built-in USB ports and LED lighting', 
+      //   supplier: 'WorkWell' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Sit-stand desk with programmable height settings', 
+      //   supplier: 'ErgoDesk' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'L-shaped desk with high gloss finish and integrated lighting', 
+      //   supplier: 'LightUp Office' 
+      // },
+      // { 
+      //   name: 'Desk', 
+      //   description: 'Desk with custom branding options', 
+      //   amount: 4, 
+      //   supplier: 'Complete' 
+      // }
     ],
     nonFixed: [
-      {
-        name: 'Laptop', 
-        description: 'Dell XPS 13, Intel i7, 16GB RAM, 512GB SSD', 
-        supplier: 'TechStore' 
-      },
-      {
-        name: 'Laptop', 
-        description: 'Apple MacBook Air, M2 chip, 8GB RAM, 256GB SSD', 
-        supplier: 'MacShop' 
-      },
-      { 
-        name: 'Laptop', 
-        description: 'HP Spectre x360, Intel i5, 8GB RAM, 256GB SSD', 
-        supplier: 'LaptopWorld' 
-      },
-      {
-        name: 'Laptop', 
-        description: 'Lenovo ThinkPad X1, Intel i7, 32GB RAM, 1TB SSD', 
-        supplier: 'TechMart' 
-      },
-      { 
-        name: 'Laptop', 
-        description: 'Asus ZenBook, AMD Ryzen 7, 16GB RAM, 512GB SSD', 
-        supplier: 'GadgetGuru' 
-      },
-      { 
-        name: 'Laptop', 
-        description: 'Microsoft Surface Laptop, Intel i5, 8GB RAM, 128GB SSD', 
-        supplier: 'SurfaceStore' 
-      },
-      {
-        name: 'Laptop', 
-        description: 'Acer Aspire, Intel i3, 4GB RAM, 1TB HDD', 
-        supplier: 'PCWorld' 
-      },
-      {
-        name: 'Laptop', 
-        description: 'Dell Latitude, Intel i9, 64GB RAM, 2TB SSD', 
-        supplier: 'EliteTech' 
-      },
-      { 
-        name: 'Laptop', 
-        description: 'Razer Blade, Intel i7, 32GB RAM, 1TB SSD, Gaming', 
-        supplier: 'GamingGear' 
-      },
-      { 
-        name: 'Laptop', 
-        description: 'Samsung Notebook, AMD Ryzen 5, 16GB RAM, 512GB SSD', 
-        supplier: 'SamsungStore' 
-      },
-      {
-        name: 'Laptop', 
-        description: 'Google Pixelbook, Intel i5, 8GB RAM, 128GB SSD', 
-        supplier: 'GoogleTech' 
-      }
+      // {
+      //   name: 'Laptop', 
+      //   description: 'Dell XPS 13, Intel i7, 16GB RAM, 512GB SSD', 
+      //   supplier: 'TechStore' 
+      // },
+      // {
+      //   name: 'Laptop', 
+      //   description: 'Apple MacBook Air, M2 chip, 8GB RAM, 256GB SSD', 
+      //   supplier: 'MacShop' 
+      // },
+      // { 
+      //   name: 'Laptop', 
+      //   description: 'HP Spectre x360, Intel i5, 8GB RAM, 256GB SSD', 
+      //   supplier: 'LaptopWorld' 
+      // },
+      // {
+      //   name: 'Laptop', 
+      //   description: 'Lenovo ThinkPad X1, Intel i7, 32GB RAM, 1TB SSD', 
+      //   supplier: 'TechMart' 
+      // },
+      // { 
+      //   name: 'Laptop', 
+      //   description: 'Asus ZenBook, AMD Ryzen 7, 16GB RAM, 512GB SSD', 
+      //   supplier: 'GadgetGuru' 
+      // },
+      // { 
+      //   name: 'Laptop', 
+      //   description: 'Microsoft Surface Laptop, Intel i5, 8GB RAM, 128GB SSD', 
+      //   supplier: 'SurfaceStore' 
+      // },
+      // {
+      //   name: 'Laptop', 
+      //   description: 'Acer Aspire, Intel i3, 4GB RAM, 1TB HDD', 
+      //   supplier: 'PCWorld' 
+      // },
+      // {
+      //   name: 'Laptop', 
+      //   description: 'Dell Latitude, Intel i9, 64GB RAM, 2TB SSD', 
+      //   supplier: 'EliteTech' 
+      // },
+      // { 
+      //   name: 'Laptop', 
+      //   description: 'Razer Blade, Intel i7, 32GB RAM, 1TB SSD, Gaming', 
+      //   supplier: 'GamingGear' 
+      // },
+      // { 
+      //   name: 'Laptop', 
+      //   description: 'Samsung Notebook, AMD Ryzen 5, 16GB RAM, 512GB SSD', 
+      //   supplier: 'SamsungStore' 
+      // },
+      // {
+      //   name: 'Laptop', 
+      //   description: 'Google Pixelbook, Intel i5, 8GB RAM, 128GB SSD', 
+      //   supplier: 'GoogleTech' 
+      // }
     ]
   });
 
@@ -172,7 +172,7 @@ function Dashboard(props) {
                         onClick={() => setBgChartData("data1")}
                       >
                         <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          Fixed Assets
+                          Fixed Asset
                         </span>
                         <span className="d-block d-sm-none">
                           <i className="tim-icons icon-single-02" />
@@ -189,7 +189,7 @@ function Dashboard(props) {
                         onClick={() => setBgChartData("data2")}
                       >
                         <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          Non-Fixed Assets
+                          Non-Fixed Asset
                         </span>
                         <span className="d-block d-sm-none">
                           <i className="tim-icons icon-gift-2" />
@@ -206,7 +206,7 @@ function Dashboard(props) {
                         onClick={() => setBgChartData("data3")}
                       >
                         <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                          Total Assets
+                          Total Staff
                         </span>
                         <span className="d-block d-sm-none">
                           <i className="tim-icons icon-tap-02" />
@@ -229,11 +229,11 @@ function Dashboard(props) {
         </Row>
         <Row>
           <Col lg="4">
-            <Card className="card-chart">
+            <Card className="card-chart card-chart-hover">
               <CardHeader>
-                <h5 className="card-category">Fixed Assets</h5>
+                <h5 className="card-category">Fixed Asset</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-bell-55 text-info" /> 155
+                  <i className="tim-icons icon-settings text-info" /> 155
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -241,12 +241,11 @@ function Dashboard(props) {
             </Card>
           </Col>
           <Col lg="4">
-            <Card className="card-chart">
+            <Card className="card-chart card-chart-hover">
               <CardHeader>
-                <h5 className="card-category">Non-Fixed Assets</h5>
+                <h5 className="card-category">Non-Fixed Asset</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                  225
+                  <i className="tim-icons icon-delivery-fast text-primary" /> 225
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -254,11 +253,11 @@ function Dashboard(props) {
             </Card>
           </Col>
           <Col lg="4">
-            <Card className="card-chart">
+            <Card className="card-chart card-chart-hover">
               <CardHeader>
-                <h5 className="card-category">Total Assets</h5>
+                <h5 className="card-category">Total Staff</h5>
                 <CardTitle tag="h3">
-                  <i className="tim-icons icon-send text-success" /> 380
+                  <i className="tim-icons icon-badge text-success" /> 380
                 </CardTitle>
               </CardHeader>
               <CardBody>
@@ -270,7 +269,7 @@ function Dashboard(props) {
           <Col lg="6" md="12">
             <Card>
               <CardHeader>
-                <h6 className="title d-inline">Fixed Assets</h6>
+                <h6 className="title d-inline">Fixed Asset</h6>
                 <p className="card-category d-inline"> currently</p>
               </CardHeader>
               <CardBody>
@@ -278,8 +277,8 @@ function Dashboard(props) {
                   <Table className="tablesorter" responsive>
                     <thead className="text-primary t_header">
                       <tr>
+                        <th>Category</th>
                         <th>Name</th>
-                        <th>Description</th>
                         <th className="text-center">Supplier</th>
                       </tr>
                     </thead>
@@ -306,7 +305,7 @@ function Dashboard(props) {
           <Col lg="6" md="12">
             <Card>
               <CardHeader>
-                <h6 className="title d-inline">Non-Fixed Assets</h6>
+                <h6 className="title d-inline">Non-Fixed Asset</h6>
                 <p className="card-category d-inline"> currently</p>
               </CardHeader>
               <CardBody>
@@ -314,8 +313,8 @@ function Dashboard(props) {
                   <Table className="tablesorter" responsive>
                     <thead className="text-primary">
                       <tr>
+                        <th>Category</th>
                         <th>Name</th>
-                        <th>Description</th>
                         <th className="text-center">Supplier</th>
                       </tr>
                     </thead>
